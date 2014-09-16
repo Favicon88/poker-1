@@ -1,0 +1,194 @@
+﻿html, body {
+	margin: 0;
+	padding: 0;
+	font-family: "Segoe UI", "wf_segoe-ui", Helvetica, Arial, sans-serif;
+	font-size: 14px;
+	line-height: 20px;
+}
+
+a {
+	text-decoration: none;
+}
+
+img {
+	border: medium none;
+}
+
+h1 {
+	font-size: 2.77em;
+	line-height: 42px;
+	margin-bottom: 20px;
+}
+
+h1, h2, h3 {
+	margin: 0;
+	color: #68217A;
+	font-weight: normal;
+}
+
+#mainHeader {
+	height: 100px;
+	border-bottom: 1px solid #EEE;
+	width: 100%;
+	position: relative;
+	background: none repeat scroll 0 0 #FFF;
+}
+
+.content {
+	width: 944px;
+	height: 100%;
+	position: relative;
+	margin: 0 auto;
+}
+
+#logo {
+	height: 22px;
+	display: inline-block;
+	margin-top: 20px;
+	z-index: 0;
+	width: 486px;
+}
+
+#logoImage, #headerTitleText {
+	float: left;
+	position: relative;
+}
+
+#logoImage a {
+	height: 100%;
+	display: inline-block;
+}
+
+.logoSprite {
+	position: relative;
+	display: inline-block;
+	overflow: hidden;
+}
+
+.logoImgElement {
+	width: 180px;
+	height: 25px;
+}
+
+#logo img {
+	vert-align: top;
+}
+
+#headerTitleTextContainer {
+	padding-right: 30px;
+	margin-top: -1px;
+}
+
+#headerTitleText {
+	color: #AEAEAE;
+	font-size: 21px;
+	font-family: "Segoe UI","wf_segoe-ui",Helvetica,Arial,sans-serif;
+	padding-left: 11px;
+	line-height: 24px;
+}
+
+#mainHeader nav.mainMenu {
+	background: none repeat scroll 0 0 #FFF;
+	position: absolute;
+	left: 10px;
+	bottom: 2px;
+	overflow: visible;
+	width: 700px;
+	height: 45px;
+	font-size: 16px;
+}
+
+#mainHeader nav.mainMenu ol {
+	list-style-type: none;
+	list-style-position: inside;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	bottom: 10px;
+	float: right;
+}
+
+#mainHeader nav.mainMenu li:not(:last-child) {
+	margin-right: 11px;
+}
+
+#mainHeader nav.mainMenu li {
+	display: inline;
+}
+
+.mainNavLink {
+	color: #000;
+	display: inline;
+	list-style-type: none;
+}
+
+section.topSlideShow {
+	margin: 50px 0 16px !important;
+	padding: 0 !important;
+}
+
+.rightImage {
+	padding: 45px 0 31px;
+}
+
+section:last-of-type .leftImage, section:last-of-type .rightImage {
+	border-bottom: medium none;
+}
+
+.leftImage, .rightImage {
+	margin-top: 45px;
+	border-bottom: 1px solid #D2D2D2;
+	border-top: medium none;
+	padding-bottom: 50px;
+	padding-top: 0;
+	display: inline-block;
+	width: 100%;
+}
+
+.blogPostSummaryImage {
+	min-height: 187px;
+	max-width: 480px;
+	margin: 0;
+	position: relative;
+	width: calc(50% - 20px);
+	display: inline-block;
+	float: left;
+}
+
+.blogPostSummaryContent {
+	width: calc(50% - 20px);
+	display: inline-block;
+	padding: 0;
+	position: relative;
+	float: left;
+}
+
+div.leftImage .blogPostSummaryContent {
+	margin-left: 20px;
+}
+
+div.rightImage .blogPostSummaryContent {
+	margin-right: 20px;
+}
+
+.blogPostSummaryContent h1 {
+	padding: 0;
+	margin-left: -1px;
+	margin-top: -4px;
+	margin-bottom: 15px;
+}
+
+.blogPostSummaryContent .blogPostSummaryLink {
+	font-size: 1.231em;
+	font-family: "Segoe UI Semibold","Segoe UI",Tahoma,Helvetica,Sans-Serif;
+	cursor: pointer;
+	display: inline-block;
+	line-height: 22px;
+	padding: 5px 23px 7px;
+	color: #FFF;
+	min-width: 125px;
+	max-width: 230px;
+	text-align: center;
+	background-color: #68217A;
+	margin-top: 25px;
+}

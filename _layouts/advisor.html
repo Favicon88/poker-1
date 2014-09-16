@@ -1,0 +1,46 @@
+﻿<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<meta charset="utf-8" />
+		<title>{{ page.title }}</title>
+		<link rel="stylesheet" type="text/css" href="{{ site.url }}/css/style.css" />
+		<link rel="stylesheet" type="text/css" href="{{ site.url }}/css/slick.css" />
+		<script type="text/javascript" src="{{ site.url }}/js/jquery-2.1.1.min.js"></script>
+		<script type="text/javascript" src="{{ site.url }}/js/slick.min.js"></script>
+	</head>
+<body>
+	<header id="mainHeader">
+		<div class="content">
+			<div id="logo">
+				<div id="logoImage">
+					<a href="/">
+						<span class="logoSprite logoImgElement">
+							<img alt="Poker Advisor" src="{{ site.url }}/img/PokerAdvisorLogo.png" />
+						</span>
+					</a>
+				</div>
+				<div id="headerTitleTextContainer">
+					<span id="headerTitleText">presented by Pragmatic Arts</span>
+				</div>
+			</div>
+			<nav class="mainMenu">
+				<ol>
+					<li class="mainNavLink">
+						<a href="/">Home</a>
+					</li>
+					<li class="mainNavLink">
+						<a href="/">Info</a>
+					</li>
+					<li class="mainNavLink">
+						<a href="/">Download</a>
+					</li>
+					<li class="mainNavLink">
+						<a href="/">Blog</a>
+					</li>
+				</ol>
+			</nav>
+		</div>
+	</header>
+	{{ content }}
+</body>
+</html>
