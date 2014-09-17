@@ -192,3 +192,14 @@ div.rightImage .blogPostSummaryContent {
 	background-color: #68217A;
 	margin-top: 25px;
 }
+
+.generalInfoHeader {
+	background-position: right center;
+	background-repeat: no-repeat;
+}
+
+.generalInfoHeader h1 {
+	padding-top: 80px;
+	padding-left: 80px;
+	width: 350px;
+}
