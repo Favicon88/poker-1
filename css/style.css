@@ -149,6 +149,7 @@ section:last-of-type .leftImage, section:last-of-type .rightImage {
 	min-height: 187px;
 	max-width: 480px;
 	margin: 0;
+	margin-bottom: 10px;
 	position: relative;
 	width: calc(50% - 20px);
 	display: inline-block;
@@ -178,7 +179,11 @@ div.rightImage .blogPostSummaryContent {
 	margin-bottom: 15px;
 }
 
-.blogPostSummaryContent .blogPostSummaryLink {
+.blogPostSummaryText p:first-child {
+	margin-top: 0;
+}
+
+.blogPostSummaryLink {
 	font-size: 1.231em;
 	font-family: "Segoe UI Semibold","Segoe UI",Tahoma,Helvetica,Sans-Serif;
 	cursor: pointer;
@@ -191,6 +196,10 @@ div.rightImage .blogPostSummaryContent {
 	text-align: center;
 	background-color: #68217A;
 	margin-top: 25px;
+}
+
+.blogPostSummaryLink a, .blogPostSummaryLink a:visited {
+	color: #FFF;
 }
 
 .generalInfoHeader {
