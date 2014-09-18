@@ -10,4 +10,129 @@ redirect_from: /
 			<h1>Download free technology preview</h1>
 		</div>
 	</section>
+	<section class="blogPostSummary">
+		<div class="content" style="margin-bottom: 50px;">
+			<p>To estimate the project download free technology preview version of the app. The project is still in development stage so current version is intended only to demostrate the concept, so you can evaluate ideas implemented, and give us your feedback about how to develop the project so that it will fully meet your expectations. App <b>doesn't require installation</b> but depending to your system configuration you will need to performed some settings to make the app work fine.</p>
+			<div class="leftImage" style="margin-top: 0; padding-bottom: 0;">
+				<div class="blogPostSummaryImage" style="width: calc(50% - 60px);">
+					<img src="{{ site.baseurl }}/img/dotNetLogo.jpg" />
+				</div>
+				<div class="blogPostSummaryText">
+					<p>The system works on <a href="http://en.wikipedia.org/wiki/.NET_Framework" target="_blank">Microsoft .NET Framework</a>. This platform is already preinstalled on most modern Windows versions. But current version of your .NET installation may not meet program requirements. Currently (September 2014) we use one of the latest versions of .NET: 4.5.1. You can download this version here: <a href="http://www.microsoft.com/download/details.aspx?id=40779" target="_blank">http://www.microsoft.com/download/details.aspx?id=40779</a>. Also you can try to run the program on the latest 4.5.2 version: <a href="http://www.microsoft.com/download/details.aspx?id=42642" target="_blank">http://www.microsoft.com/download/details.aspx?id=42642</a>. .NET Framework allows different versions to be installed side-by-side, so you should not worry about the fact that some older version is already installed on your PC.</p>
+				</div>
+			</div>
+			<p>Current implementation of Poker Advisor is based on table tracking via image recognition. The system makes poker table screenshots and tries to recognize them several times per second. Currently such implementation has some limitations. That's why to make everything work fine you need to setup the following settings:</p>
+			<ol class="guidelinesOrderedList">
+				<li>
+					<p>Ensure that all PokerStars tables are set up to <b>default size</b>. You need to select each table and press <b>Ctrl+B</b>:</p>
+					<img src="{{ site.baseurl }}/img/PSSettingsGuide/ResetToDefaultSize.png" alt="Reset to default size" />
+				</li>
+				<li>
+					<p>Next step: ensure that you use <b>classic table theme</b>. If your table theme is not classic go to <b>Table Themes</b> window as these figures show:</p>
+					<table>
+						<tr>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6GoToTableThemes.png" alt="Go to Table Themes (PokerStars 6)" />
+							</td>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PSTableGoToTableThemes.png" alt="Go to Table Themes from PokerStars table" />
+							</td>
+						</tr>
+						<tr>
+							<td>From PokerStars 6 main lobby</td>
+							<td>From the table</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7GoToSettings.png" alt="Go to Settings (PokerStars 7)" />
+							</td>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7GoToTableThemes.png" alt="Go to Table Themes (PokerStars 7)" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">From PokerStars 7 main lobby</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<p>In the <b>Table Themes</b> window set up everything as shown at the following figure:</p>
+					<img src="{{ site.baseurl }}/img/PSSettingsGuide/TableThemesWindow.png" alt="PokerStars Table Themes window" />
+					<p>In addition to classic theme, <b>front</b> and <b>back</b> of cards should also have such a <b>classic look</b>. 4 Color Deck should be <b>disabled</b>.</p>
+				</li>
+				<li>
+					<p>Also it's highly desirable <b>to disable pop-up tournament announcements</b>:</p>
+					<table>
+						<tr>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6GoToOptions.png" alt="Go to Options (PokerStars 6)" />
+							</td>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6BlockPopupAnnouncements.png" alt="Block Pop-up Announcements (PokerStars 6)" />
+							</td>
+						</tr>
+						<tr>
+							<td colspan="2">PokerStars 6 client</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<p>Nevertheless it's also desirable that you use <b>Simplified animation</b> instead of full (or even better turn it off completely):</p>
+					<table>
+						<tr>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6SetupSimplifiedAnimation.png" alt="Setup Simplified Animation (PokerStars 6)" />
+							</td>
+						</tr>
+						<tr>
+							<td>PokerStars 6</td>
+						</tr>
+					</table>
+					<table>
+						<tr>
+							<td>
+								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7SetupSimplifiedAnimation.png" alt="Setup Simplified Animation (PokerStars 7)" />
+							</td>
+						</tr>
+						<tr>
+							<td>PokerStars 7</td>
+						</tr>
+					</table>
+				</li>
+				<li>
+					<p>If you use PokerStars 7, it's also desirable to <b>disable "Dim Players Not In The Hand"</b>:</p>
+					<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7DisableDimPlayersNotInHand.png" alt="Disable Dim Players Not In Hand (PokerStars 7)" />
+				</li>
+				<li>
+					<p>These were the main settings that you probably have to change. The following settings are likely already set up as they should, but nevertheless make sure that they are configured so:</p>
+					<ul style="list-style-type: disc">
+						<li>
+							<p><span style="text-decoration: underline;">PokerStars 6</span>:</p>
+							<ul>
+								<li><p>User interface language: <b>English</b>;</p></li>
+								<li><p>Table Display Options > Show Full Hole Cards - should be <b>disabled</b>;</p></li>
+								<li><p>Table Display Options > Show Large Opponent Cards - should be <b>disabled</b>;</p></li>
+								<li><p>Table Display Options > Display Bet Amounts - should be <b>disabled</b>;</p></li>
+							</ul>
+						</li>
+						<li>
+							<p><span style="text-decoration: underline;">PokerStars 7</span>:</p>
+							<ul>
+								<li><p>User interface language: <b>English</b>;</p></li>
+								<li><p>Table Appearance > Cards > Show Large Opponent Cards - should be <b>disabled</b>;</p></li>
+								<li><p>Table Appearance > Cards > Show Full Hole Cards - should be <b>disabled</b>;</p></li>
+								<li><p>Table Appearance > Table Display > Display Bet Amounts - should be <b>enabled</b>;</p></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+			</ol>
+			<p>Just in case this description is duplicated in Readme.docx, which is included in downloadable zip. If you've done everything correctly, run Advisor.exe and start playing. Thank you for your attention to our product! :)</p>
+			<div class="blogPostSummaryLink">
+				<a href="PokerAdvisor.zip">Download and play</a>
+			</div>
+		</div>
+</section>
 </article>

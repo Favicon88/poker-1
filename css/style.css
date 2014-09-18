@@ -212,3 +212,17 @@ div.rightImage .blogPostSummaryContent {
 	padding-left: 80px;
 	width: 350px;
 }
+
+ol.guidelinesOrderedList {
+	font-weight: bold;
+}
+
+ol.guidelinesOrderedList p {
+	font-weight: normal;
+}
+
+ol.guidelinesOrderedList td {
+	font-weight: normal;
+	text-decoration: underline;
+	vertical-align: top;
+}
