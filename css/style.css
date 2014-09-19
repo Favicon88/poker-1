@@ -26,6 +26,10 @@ h1, h2, h3 {
 	font-weight: normal;
 }
 
+.slick-dots li button:before {
+	font-size: 25px !important;
+}
+
 #mainHeader {
 	height: 100px;
 	border-bottom: 1px solid #EEE;
