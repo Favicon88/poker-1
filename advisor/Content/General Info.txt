@@ -1,0 +1,109 @@
+***** Краткое описание (rus) *****
+Poker Advisor - аналитическая система реального времени, призванная содействовать покерным игрокам в принятии решений во время игры. Цель системы - дать игроку всесторонний анализ ситуации с тем, чтобы сократить размышления на принятие решений, уменьшить влияние тильта и невнимательности и тем самым улучшить качество мультитейблинга. Когда вы играете 10+ столов одновременно, из-за необходимости постоянно переключаться вы можете упустить из внимания какие-то факторы, которые могут оказаться решающими в текущей раздаче.
+
+***** Short description (eng) *****
+Poker Advisor is a real-time analytical system that is intended to assist poker players in decision making during the game. The purpose of the system is to give the player a comprehensive analysis of the situation in order to reduce reflections on the decision-making, reduce the influence of tilt and inattention, and thus improve the quality of multi-tabling. When you play 10+ tables simultaneously you need continually switch between tables and you can overlook some factors that could be decisive in the current hand.
+
+***** Длинное описание (rus) *****
+Цель проекта родилась из идеи автоматизации игры в online-покер. Но так как онлайн покер-румы негативно относятся к покер-боттингу и запрещают это, идеи принятия решений в покере нашли своё применение в проекте покерного советника.
+
+Цель проекта состоит в том, чтобы помогать игроку в принятии решений в реальном времени в условиях игры на нескольких столах (мультитейблинга). В условиях мультитейблинга внимание игрока может не поспевать за скоростью раздач, что часто чревато ошибками, которые на дистанции могут перерасти в минусовую игру и обойтись в солидную сумму. В покере также имеет место человеческий фактор и такое психологическое состояние как тильт. Цель покерного советника, если не предотвратить, то значительно уменьшить влияние этих факторов на принимаемые решения.
+
+Суть проекта состоит в том, чтобы формализовать факторы принятия решений игроками, выявлять их в реальном времени в конкретных ситуациях, выводить пользователю их анализ и рекомендуемое решение. Причём алгоритм принятия решений основан не на каких-то правилах, а должен быть выявлен на основе стиля игры самого игрока. Для этого в принятии решений использовались принципы искусственных нейронных сетей. Назначение нейросетей - перенять тенденции игрока к принятию решений через специальные алгоритмы обучения на основе истории рук.
+
+Процесс выглядит следующим образом:
+1. Вы запускаете программу.
+2. Система выявляет открытые столы и запускает их мониторинг в параллельном режиме. Затем вы можете открывать и закрывать столы - система запустит\остановить их мониторинг автоматически.
+3. Мониторинг осуществляется по скриншотам столов, получаемых в реальном времени несколько раз в секунду. Данные извлекаются алгоритмами распознавания образов по механике покера. Т. е. в текущий момент распознаются только те части скриншота, которые требуются по механике раздачи. Так реализовано из соображений производительности.
+4. Как только подходит очередь игрока в круге торговли, система извлекает из истории текущей раздачи факторы принятия решений, которые анализируются и выводятся пользователю.
+5. Данные анализа преобразуются в нейроданные (числа от -1 до 1) и передаются на искусственную нейросеть, которая собственно и осуществляет принятие решений.
+6. Вы видете рекомендуемое решение. Т. к. это решение принято нейросетью, обученной на основе вашей же истории рук, то в большинстве случаев это решение должно соответствовать вашему видению игры.
+
+На префлопе можно выделить несколько факторов принятия решений в Техасском Холдеме:
+• Сила стартовой руки;
+• Позиция;
+• Стеки игроков;
+• Динамика и размеры ставок (экшн);
+• Статистика на оппонентов;
+
+На постфлопе факторов намного больше:
+• Сила текущей комбинации (готовая рука);
+• Наличие дро на стрит, флеш или оверпару;
+• Текстура борда;
+• Позиция;
+• Стеки игроков;
+• Текущий экшн;
+• Экшн на предыдущих улицах (кругах торговли);
+• Статистика на оппонентов.
+
+Каждый из этих факторов раскладываются на более мелкие и конкретные индикаторы, которые можно формализовать и реализовать программно.
+
+На текущий момент реализовано:
+• Распознавание столов PokerStars и их мониторинг в реальном времени по механике Техасского Холдема;
+• Извлечение факторов на префлопе: сила стартовой руки, позиция, стеки, экшн;
+• Извлечение факторов на постфлопе: готовая рука, наличие дро, текстура борда, позиция, стеки, текущий экшн;
+• Интерфейс и функционал обучения нейросетей;
+• Подключение к трекинговой системе PokerTracker, извлечение и парсинг истории рук в формате PokerStars для обучения нейросетей.
+
+Нерешённые задачи:
+• Экшн на предыдущих улицах;
+• Статистика на оппонентов;
+• Реализация собственного алгоритма обучения нейросети для более качественного обучения. Сейчас используется реализованный в библиотке Encog алгоритм iRPROP+;
+• Поддержка других румов помимо PokerStars;
+• Подключение к Holdem Manager;
+• Поддержка турниров (в будущих версиях);
+• Поддержка Омахи (в будущих версиях).
+
+Чтобы оценить текущую CTP-версию приложения, перейдите на страницу загрузки.
+
+***** Long description (eng) *****
+Project intentions were born from the idea of online poker automation. But as online poker rooms have a negative attitude to poker botting and prohibit it, ideas of poker decision-making have found their way into the “Poker advisor” project.
+
+Project aim is real-time assistance to poker player in decision making under multitabling conditions (playing multiple tables at a time). While playing multiple tables player attention can be not in time with hand playing speed. This is often error-prone and can turn into a minus game and cost a lot of money. Poker decision making is also influenced by human factor and such a psychological condition as tilt. Poker advisor can significantly reduce the impact of these factors on the decisions taken.
+
+The essence of the project is to formalize player decision factors, identify them in real time in specific situations and prompt the user their analysis and recommended decision. Also decision making algorithm is not based on some rules but must be inferred on the basis of player’s game style. In order to implement it the principles of artificial neural networks were used. The task for neural networks is to adopt player trends of decision making via special training algorithms on the basis of player's hand history.
+
+The process is as follows:
+1. You start the program;
+2. The system detects open poker tables and starts their monitoring in parallel mode. Then you can open and close tables - the system will start\stop their polling automatically.
+3. Monitoring is performed using table screenshots obtained in real time several times per second. Data is extracted by pattern recognition algorithms using poker mechanics.  I. e. only those parts of screenshot are detected that are currently required by the mechanics of the hand.
+4. As soon as the turn of the player comes in current betting round, the system extracts decision-making factors from current hand history. Then they are analyzed and displayed to the user.
+5. The system converts analyzed data into neural data (numbers from -1 to 1) and transfer it to artificial neural network which actually makes a decision.
+6. You see recommended decision. Since the decision is taken by the neural network, trained on the basis of your own hand histories, in most cases, this decision should match your vision of the game.
+
+On preflop there are several factors for decision making in Texas Hold'em:
+• Starting hand strength;
+• Position;
+• Players’ stacks;
+• Betting dynamics and sizing (action);
+• Statistics on opponents.
+
+On postflop there are much more factors:
+• Current hand strength;
+• Presence of draws to straight, flush or overpair;
+• Board texture;
+• Position;
+• Players’ stacks;
+• Current action;
+• Action on previous streets (betting rounds);
+• Opponent statistics.
+
+Each of these factors is decomposed into smaller and more specific indicators that can be formalized and implemented programmatically.
+
+The following features are currently implemented:
+• PokerStars table detection and real-time monitoring on the basis of Texas Hold’em mechanics;
+• Preflop factors extraction: starting hand strength, position, player stacks, preflop action;
+• Postflop factors extraction: current hand strength, draw presence, board texture, position, stacks, current action;
+• UI and functionality of neural network training;
+• PokerTracker database connectivity, PokerStars hand history extraction and parsing for neural net training.
+
+Not implemented tasks:
+• Actions on previous betting rounds;
+• Opponent statistics;
+• Custom training algorithm to improve quality of neural net training. Currently iRPROP+ implementation from Encog library is used;
+• Support for other rooms in addition to PokerStars;
+• Holdem Manager connectivity;
+• Tournaments support (future versions);
+• Omaha support (future versions).
+
+To estimate CTP version of the app visit download page on this site.

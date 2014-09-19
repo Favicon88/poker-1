@@ -1,5 +1,6 @@
 baseurl: /poker
 highlighter: rouge
+exclude: [advisor/Design, advisor/Content]
 
 gems:
   - jekyll-redirect-from

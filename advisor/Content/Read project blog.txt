@@ -1,0 +1,6 @@
+***** Краткий пост на главную страницу (rus) *****
+Зайдите в наш блог. Там мы постим последние новости проекта и участвуем в их обсуждении. Там публикуются регулярные realese notes с описанием последних изменений и багфиксов. В комментариях можно оставить свой отзыв о последней версии и указать нам на баг, который мы не заметили ...
+
+
+***** Short post on home page (eng) *****
+Visit our blog. We post there latest project news and discuss them. We will publish regular release notes with the description of last changes and bugfixes. You can leave your feedback about latest build and report a bug that we missed.
