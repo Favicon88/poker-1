@@ -10,4 +10,9 @@ redirect_from: /
 			<h1>Poker Advisor project blog</h1>
 		</div>
 	</section>
+	{% for post in site.posts %}
+		<section class="blogPostSummary">
+			{{ post.excerpt }}
+		</section>
+	{% endfor %}
 </article>

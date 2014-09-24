@@ -1,0 +1,105 @@
+---
+layout: post
+title: Poker Advisor - First CTP Release Notes
+---
+
+<div class="content">
+	<div class="leftImage">
+		<div class="blogPostSummaryImage">
+			<img src="{{ site.baseurl }}/img/ReleaseNotes.png" />
+		</div>
+		<div class="blogPostSummaryContent">
+			<h1 class="blogPostSummaryTitle">First CTP version release notes</h1>
+			<div class="blogPostSummaryText">
+				<p><i>{{ page.date | date_to_long_string }}</i></p>
+				<p>Since this is the first release notes, the text below describes everything that is currently implemented in the system. Next release notes will contain just the changes to the first one. Third release notes will contain changes to the second one etc.</p>
+				<p>Most of the information specified here is described in <a href="{{ site.baseurl }}/advisor/info" target="_blank">General info</a> article. But here every feature is described in more details. Also known issues are explained here as well as plans for development in the short and long terms ...</p>
+			</div>
+			<div class="blogPostSummaryLink">
+				<a href="{{ site.baseurl }}{{ page.url }}">Read more</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- more -->
+
+<article>
+	<section class="blogPostSummary">
+		<div class="content">
+			<div class="leftImage">
+				<div class="blogPostSummaryImage">
+					<img src="{{ site.baseurl }}/img/ReleaseNotes.png" />
+				</div>
+				<div class="blogPostSummaryText">
+					<h1>First CTP version release notes</h1>
+					<p><i>{{ page.date | date_to_long_string }}</i></p>
+					<p>Since this is the first release notes, the text below describes everything that is currently implemented in the system. Next release notes will contain just the changes to the first one. Third release notes will contain changes to the second one etc.</p>
+					<p>Most of the information specified here is described in <a href="{{ site.baseurl }}/advisor/info" target="_blank">General info</a> article. But here every feature is described in more details. Also known issues are explained here as well as plans for development in the short and long terms.</p>
+				</div>
+			</div>
+			<p>So currently the system implements the following <b>features</b>:</p>
+			<ol class="guidelinesOrderedList">
+				<li><p>Start\Stop tracking for PokerStars process as well as tracking of open\close\select events for tables in the process. PokerStars process tracking is performed via <a href="http://en.wikipedia.org/wiki/Windows_Management_Instrumentation" target="_blank">WMI</a>, that's why the program requires run itself under administrative privileges.</p></li>
+				<li><p>Parallel real-time monitoring of <a href="http://www.pokerstrategy.com/glossary/Shorthanded/" target="_blank">6-max</a> and <a href="http://www.pokerstrategy.com/glossary/Full-Ring/" target="_blank">9-max</a> PokerStars <a href="http://www.pokerstrategy.com/glossary/Cash-Game/" target="_blank">cash</a> tables on the basis of Texas Hold’em mechanics. The following tables monitoring is not supported: <a href="http://www.pokerstrategy.com/glossary/Tournament/" target="_blank">tournament</a> tables, cash tables with <a href="http://www.pokerstrategy.com/glossary/Cap/" target="_blank">CAP</a>, <a href="http://www.pokerstrategy.com/glossary/Rush-Poker_1795/" target="_blank">ZOOM</a> tables, <a href="http://www.pokerstrategy.com/glossary/heads-up/" target="_blank">Heads-up</a> tables and other tables where number of player places is different from 6 or 9.</p></li>
+				<li><p>Reading the model of current situation via image and character recognition. Recognition algorithm is designed for maximum accuracy and speed. So current implementation contains a restriction that makes PokerStars table windows always have the default size.</p></li>
+				<li>
+					<p>Extraction of the following decision-making factors from current situation model:</p>
+					<p><a href="http://www.pokerstrategy.com/glossary/Preflop/" target="_blank">Preflop</a>:</p>
+					<ul style="list-style-type: disc">
+						<li><p>Starting hand classification: estimated strength, <a href="http://www.pokerstrategy.com/glossary/Pair/" target="_blank">pair</a>\<a href="http://www.pokerstrategy.com/glossary/Connectors/" target="_blank">connectors</a>\<a href="http://www.pokerstrategy.com/glossary/Gap-Hand/" target="_blank">gap connectors</a>, <a href="http://www.pokerstrategy.com/glossary/Suited-connectors_110/" target="_blank">suited\offsuited</a>, presence of Ace\King.</p></li>
+						<li><p>Position and initial players count.</p></li>
+						<li><p><a href="http://www.pokerstrategy.com/glossary/Stack/" target="_blank">Stacks</a> estimation: effective stack and total stack.</p></li>
+						<li><p>Bet sizing and dynamics: position and sizes of <a href="http://www.pokerstrategy.com/glossary/Raise/" target="_blank">raises</a>\<a href="http://www.pokerstrategy.com/glossary/3-bet_62/" target="_blank">3-bets</a>\<a href="http://www.pokerstrategy.com/glossary/4bet/" target="_blank">4-bets</a> and their corresponding <a href="http://www.pokerstrategy.com/glossary/Limp/" target="_blank">limpers'</a> and <a href="http://www.pokerstrategy.com/glossary/Call/" target="_blank">callers'</a> positions.</p></li>
+					</ul>
+					<p><a href="http://www.pokerstrategy.com/glossary/Postflop/" target="_blank">Postflop</a>:</p>
+					<ul style="list-style-type: disc">
+						<li><p>Potential of the <a href="http://www.pokerstrategy.com/glossary/Board/" target="_blank">board</a> for the presence of players' <a href="http://www.pokerstrategy.com/glossary/Straight/" target="_blank">straight</a> or straight <a href="http://www.pokerstrategy.com/glossary/Draw/" target="_blank">draw</a>: straight by 2 cards\by 1 card, straignt draw by 2 cards\by 1 card.</p></li>
+						<li><p>Potential of the <a href="http://www.pokerstrategy.com/glossary/Board/" target="_blank">board</a> for the presence of players' <a href="http://www.pokerstrategy.com/glossary/Flush/" target="_blank">flush</a> or <a href="http://www.pokerstrategy.com/glossary/Flush-Draw/" target="_blank">flush draw</a>: board <a href="http://www.pokerstrategy.com/glossary/Texture_1952/" target="_blank">texture</a> by <a href="http://www.pokerstrategy.com/glossary/Two-suited_87/" target="_blank">2</a>\<a href="http://www.pokerstrategy.com/glossary/Three-suited_103/" target="_blank">3</a>\4+ <a href="http://www.pokerstrategy.com/glossary/Suitedness/" target="_blank">suited</a> cards, 2 by 2 or 2 by 3 suited.</p></li>
+						<li><p><a href="http://www.pokerstrategy.com/glossary/Board/" target="_blank">Board</a> duplication level: no duplications\<a href="http://www.pokerstrategy.com/glossary/Paired/" target="_blank">paired</a>\double paired\tripled\tripled and paired\<a href="http://www.pokerstrategy.com/glossary/4oak/" target="_blank">quads</a> on board.</p></li>
+						<li><p>Current hand <a href="http://www.pokerstrategy.com/glossary/Equity/" target="_blank">equity</a> vs players' random hands.</p></li>
+						<li><p>Current hand classification: total combination (<a href="http://www.pokerstrategy.com/glossary/High-Card/" target="_blank">High Card</a>, <a href="http://www.pokerstrategy.com/glossary/Set/" target="_blank">Set</a>, <a href="http://www.pokerstrategy.com/glossary/Straight/" target="_blank">Straight</a> etc.), <a href="http://www.pokerstrategy.com/glossary/Pair/" target="_blank">pairs</a> and <a href="http://www.pokerstrategy.com/glossary/Two-pair_88/" target="_blank">two pairs</a> estimation (<a href="http://www.pokerstrategy.com/glossary/Top-pair_96/" target="_blank">top pair</a>\second pair\<a href="http://www.pokerstrategy.com/glossary/Top-two_95/" target="_blank">top two</a> etc.), set estimation (top set, 2-nd set, 3-d set etc.), straignt strength estimation (top straight\2-nd straight\by 1 card\<a href="http://www.pokerstrategy.com/glossary/Idiot-End/" target="_blank">idiot end</a>), flush strength estimation (including <a href="http://www.pokerstrategy.com/glossary/Straight-Flush/" target="_blank">straight flush</a> possibility on board).</p></li>
+						<li><p><a href="http://www.pokerstrategy.com/glossary/Draw/" target="_blank">Drawings</a> classification: straight draw (<a href="http://www.pokerstrategy.com/glossary/OESD/" target="_blank">OESD</a>\<a href="http://www.pokerstrategy.com/glossary/Inside-Straight-Draw/" target="_blank">Gutshot</a>, by 2 cards\by 1 card, relative strength of potential straights), flush draw (by 2 cards\by 1 card, relative strength of minimal potential flush), <a href="http://www.pokerstrategy.com/glossary/Overcards/" target="_blank">overpair draws</a> (absolute strength of potential <a href="http://www.pokerstrategy.com/glossary/Overpair/" target="_blank">overpair</a>).</p></li>
+						<li><p>Bet sizing and dynamics: position and sizes of bets\raises\3-bets and their corresponding callers' positions.</p></li>
+						<li><p>Current <a href="http://www.pokerstrategy.com/glossary/Pot/" target="_blank">pot</a> size estimation in <a href="http://www.pokerstrategy.com/glossary/Big-Blind/" target="_blank">big blinds</a>: partitioning by category.</p></li>
+					</ul>
+				</li>
+				<li><p>Conversion of factors listed above into neural data (numbers between -1 and 1). Preflop and postflop decision making via neural data transfer to specially trained <a href="http://en.wikipedia.org/wiki/Artificial_neural_network" target="_blank">neural network</a>.</p></li>
+				<li><p><a href="http://en.wikipedia.org/wiki/PokerTracker" target="_blank">PokerTracker</a> v3 database connectivity and <a href="http://en.wikipedia.org/wiki/Hand_history" target="_blank">hand history</a> extraction for neural net training. Minimal hand history filters are supported: most unprofitable hands can be filtered (if the hand was lost and more than 15<a href="http://www.pokerstrategy.com/glossary/Big-Blind/" target="_blank">bb</a> were put in the pot preflop or more than 40<a href="http://www.pokerstrategy.com/glossary/Big-Blind/" target="_blank">bb</a> postflop).</p></li>
+				<li><p><a href="http://en.wikipedia.org/wiki/Hand_history" target="_blank">Hand history</a> processing in order to generate models of situations where player has made his decisions, extract factors and convert them to neural data for training the neural net.</p></li>
+				<li><p>Neural net training based on generated neural data.</p></li>
+				<li>
+					<p>User interface (Windows):</p>
+					<ul style="list-style-type: disc">
+						<li><p>Main window: a list of currently processing tables, analytics output: decision making factors\recommended decision, complete log of what's happening at each table, start\stop of the monitoring, log cleanup etc.</p></li>
+						<li><p>Setup wizard for neural net training.</p></li>
+						<li><p>Neural net training progress.</p></li>
+					</ul>
+				</li>
+			</ol>
+			<p><b>Known issues</b>:</p>
+			<ul style="list-style-type: disc">
+				<li><p>Just after table tracking starts, monitoring begins only from the next hand (after first shift of the <a href="http://www.pokerstrategy.com/glossary/Button/" target="_blank">button</a>).</p></li>
+				<li><p>If only two players remain at the table and when 3-d player joins the game, table tracker will miss one hand because PokerStars will not shift the <a href="http://www.pokerstrategy.com/glossary/Button/" target="_blank">button</a> in this case.</p></li>
+				<li><p>In case of disconnect the system can stop monitor tables correctly (depending on how long it was disconnected). Tracking reset button will solve the problem.</p></li>
+				<li><p>In case of usage of <i>Run it Twice</i> feature, tracking starts behave incorretly. Can recover itself after one or two hands. This problem also can be solved by reset button.</p></li>
+				<li><p>Since monitoring is real-time, table screenshots can be unpredictable. Due to this fact the system can sometimes for example miss some hand without any reason. Recent times such an error arises very rare, but if it has been suddenly raised, tracking reset button will help.</p></li>
+			</ul>
+			<p><b>Plans</b> for development <b>in the short term</b>:</p>
+			<ul style="list-style-type: disc">
+				<li><p>Bet sizing and dynamics on previous betting rounds as decision making factor for postflop.</p></li>
+				<li><p>PokerTracker statistics as decision making factor for preflop and postflop.</p></li>
+				<li><p>Improvements for training algorithm for neural networks in order to produce better decisions.</p></li>
+				<li><p>PokerTracker v4 support.</p></li>
+				<li><p>Graphical user interface for each analytical factor output. Now the factors are only displayed just as text.</p></li>
+				<li><p><a href="http://www.holdemmanager.com/" target="_blank">Holdem Manager</a> support as hand history source for training and real-time statistics for decision making.</p></li>
+			</ul>
+			<p><b>Plans</b> for development <b>in the long term</b>:</p>
+			<ul style="list-style-type: disc">
+				<li><p>Support for other poker rooms in addition to PokerStars;</p></li>
+				<li><p>Tournaments support;</p></li>
+				<li><p><a href="http://en.wikipedia.org/wiki/Omaha_hold_%27em" target="_blank">Omaha</a> support.</p></li>
+			</ul>
+		</div>
+	</section>
+</article>

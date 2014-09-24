@@ -4,3 +4,130 @@
 
 ***** Short post on home page (eng) *****
 Visit our blog. We post there latest project news and discuss them. We will publish regular release notes with the description of last changes and bugfixes. You can leave your feedback about latest build and report a bug that we missed.
+
+
+***** Краткое содержание поста на главную страницу блога (rus) *****
+Т. к. это первые release notes, ниже описано всё, что на текущий момент реализовано в системе. Следующие release notes будут содержать лишь изменения к первым. Третьи realease notes будут содержать изменения ко вторым и т. д.
+
+Основная информация, указанная здесь, изложена в статье "Основная информация о проекте". Здесь просто каждая возможность системы раскрыта более подробно. Также изложены известные проблемы и планы на развитие в ближайшей и долгосрочной перспективе.
+
+Итак, на текущий момент в системе реализовано:
+1. Отслеживане запуска\остановки процесса PokerStars, а также отслеживание событий открытия\закрытия\переключения столов внутри процесса. Отслеживание процесса PokerStars производится через WMI, поэтому программа требует запускать себя под администратором.
+2. Параллельный мониторинг 6-max и 9-max кэш-столов PokerStars в рельном времени по механике Техасского Холдема. Мониторинг следующих столов не поддерживается: столы турниров, кэш-столы с CAP-ом, ZOOM-столы, Heads-up-столы, а также все остальные столы, где количество мест отличается от 6 или 9.
+3. ...
+
+***** Short post on main page (eng) *****
+Since this is the first release notes, the text below describes everything that is currently implemented in the system. Next release notes will contain just the changes to the first one. Third release notes will contain changes to the second one etc.
+
+Most of the information specified here is described in "General info" article. But here every feature is described in more details. Also known issues are explained here as well as plans for development in the short and long terms.
+
+So currently the system implements the following features:
+1. Start\Stop tracking for PokerStars process as well as tracking of open\close\select events for tables in the process. PokerStars process tracking is performed via WMI, that's why the program requires run itself under administrative privileges.
+2. Parallel real-time monitoring of 6-max and 9-max PokerStars cash tables on the basis of Texas Hold’em mechanics. The following tables monitoring is not supported: tournament tables, cash tables with CAP, ZOOM tables, Heads-up tables and other tables where number of player places is different from 6 and 9.
+3. ...
+
+***** Тело поста (rus) *****
+Т. к. это первые realese notes, ниже описано всё, что на текущий момент реализовано в системе. Следующие realease notes будут содержать лишь изменения к первым. Третьи realease notes будут содержать изменения ко вторым и т. д.
+
+Основная информация, указанная здесь, изложена в статье "Основная информация о проекте". Здесь просто каждая возможность системы раскрыта более подробно. Также изложены известные проблемы и планы на развитие в ближайшей и долгосрочной перспективе.
+
+Итак, на текущий момент в системе реализовано:
+1. Отслеживане запуска\остановки процесса PokerStars, а также отслеживание событий открытия\закрытия\переключения столов внутри процесса. Отслеживание процесса PokerStars производится через WMI, поэтому программа требует запускать себя под администратором.
+2. Параллельный мониторинг 6-max и 9-max кэш-столов PokerStars в рельном времени по механике Техасского Холдема. Мониторинг следующих столов не поддерживается: столы турниров, кэш-столы с CAP-ом, Heads-up-столы, а также все остальные столы, где количество мест отличается от 6 или 9.
+3. Считывание модели текущей ситуации методом распознавания символов и изображений. Метод распознавания расчитан на максимальную точность и скорость распознавания. Поэтому в текущей реализации присутствует ограничение, связанное с тем, что окна столов PokerStars должны иметь размер по умолчанию.
+4. Извлечение следующих факторов принятия решений из модели текущей ситуации:
+   Префлоп:
+	-- Классификация стартовой руки: оценочная сила, пара\коннекторы\полуконнекторы, одномастные\разномастные, наличие туза\короля.
+	-- Позиция и кол-во игроков в раздаче.
+	-- Соотношения стеков: реальный и эффектиный стек.
+	-- Динамика и размеры ставок: позиции и размеры рейзов\3-бетов\4-бетов, а также соответствующие позиции лимперов и коллеров.
+   Постфлоп:
+	-- Потенциал борда на наличие у игроков стрита или стрит-дро: стрит по 2-м картам\по 1-ой карте, стрит-дро по 2-м картам\по 1-ой карте.
+	-- Потенциал борда на наличие у игроков флеша или флеш-дро: текстура борда по 2-м\3-м\4+-одномастным картам, 2 по 2 или 2 по 3 одномастные.
+	-- Уровень спаренности и строенности борда: без спарок\спаренный\две спарки\строенный\спарка + строенный\каре на борде.
+	-- Эквити текущей руки против случайных рук оппонентов.
+	-- Классификация текущей готовой руки: суммарная комбинация (High card, Set, Straight и т. д.), оценка пар и двух пар (топ-пара\вторая пара\топ две и т. д.), оценка сета (топ-сет, 2-й сет, 3-й сет и т. д.), оценка силы стрита (топ-стрит\второй стрит\по одной карте\idiot end), оценка силы флеша (включая возможность стрит-флеша на доске).
+	-- Классификация дро: стрит-дро (OESD\Gutshot, по 2-м картам\по 1-й карте, относительная сила потенциальных стритов), флеш-дро (по 2-м картам\по 1-й карте, относительная сила минимального потенциального флеша), дро на оверпару (абсолютная сила потенциальной оверпары).
+	-- Динамика и размеры ставок: позиции и размеры ставок\рейзов\3-бетов, а также соответствующие позиции коллеров.
+	-- Оценка текущего размера банка в больших блайндах: разбиение по категориям.
+5. Трансформация приведённых выше факторов в нейроданные (числа от -1 до 1) и принятие решений на префлопе\постфлопе через передачу этих нейроданных в специально обученные нейросети.
+6. Подключение к базе данных PokerTracker v3 и извлечене истории рук игрока для обучения нейросети. Поддерживается минимальная фильтрация истории: фильтруются самые убыточные руки (если рука была проиграна и до флопа вложено больше 15бб, либо после флопа было вложено больше 40бб).
+7. Обработка истории рук таким образом, чтобы сгенерировать модель ситуаций, в которых игрок принимал решения, извлечь факторы и преобразовать в нейроданные для обучения нейросети.
+8. Обучение нейросети на основе сгенерированных нейроданных.
+9. Пользовательский интерфейс:
+	-- Главное окно: список обрабатываемых столов, вывод аналитики: факторы принятия решений\рекомендуемое решение, лог происходящего за каждым столом, старт\стоп мониторинга, очистка лога и др.
+	-- Мастер настройки обучения нейросетей.
+	-- Прогресс обучения нейросетей.
+
+Известные проблемы:
+	-- После старта отслеживания стола, мониторинг начинается только со следующей раздачи (после перемещения баттона).
+	-- Если за столом осталось только 2 человека, то после того, как подсядет 3-й, трекер пропустит 1 раздачу, т. к. по механике PokerStars баттон не переместится.
+	-- В случае разрыва соединения система может перестать адекватно отслеживать столы (в зависимости от того, сколько длился disconnect). Решается кнопкой перезапуска отслеживая стола.
+	-- В случае использования возможности Run it Twice после All-in-а стол начинает отслеживаться некорректно. Может сам восстановиться через 1-2 раздачи. Также решается перезапуском отслеживания стола.
+	-- Т. к. мониторинг проводится в реальном времени, то скриншоты столов, которые система считывает, могут быть непредсказуемы. Из-за этого система иногда может, например, беспричинно пропустить раздачу. Последнее время такая ошибка встречается редко, но если вдруг возникла, решается методом перезапуска отслеживания стола.
+
+Планы на реализацию в ближайшей перспективе:
+	-- Анализ динамики и размеров ставок на предыдущих улицах как фактор принятия решений на постфлопе,
+	-- Статистика PokerTracker как фактор принятия решений на префлопе и постфлопе.
+	-- Улучшение алгоритма обучения нейросетей для выработки более качественных решений.
+	-- Поддержка PokerTracker v4.
+	-- Графический интерфейс для вывода каждого аналитического фактора. Сейчас факторы выводятся только в текстовом представлении.
+	-- Поддержка Holdem Manager как источника истории рук для обучения и статистики для принятия решений в реальном времени.
+
+Планы на реализацию в среднесрочной перспективе:
+	-- Поддержка других румов помимо PokerStars;
+	-- Поддержка турниров;
+	-- Поддержка Омахи.
+
+***** Post body (eng) *****
+Since this is the first release notes, the text below describes everything that is currently implemented in the system. Next release notes will contain just the changes to the first one. Third release notes will contain changes to the second one etc.
+
+Most of the information specified here is described in "General info" article. But here every feature is described in more details. Also known issues are explained here as well as plans for development in the short and long terms.
+
+So currently the system implements the following features:
+1. Start\Stop tracking for PokerStars process as well as tracking of open\close\select events for tables in the process. PokerStars process tracking is performed via WMI, that's why the program requires run itself under administrative privileges.
+2. Parallel real-time monitoring of 6-max and 9-max PokerStars cash tables on the basis of Texas Hold’em mechanics. The following tables monitoring is not supported: tournament tables, cash tables with CAP, ZOOM tables, Heads-up tables and other tables where number of player places is different from 6 or 9.
+3. Reading the model of current situation via image and character recognition. Recognition algorithm is designed for maximum accuracy and speed. So current implementation contains a restriction that makes PokerStars table windows always have the default size.
+4. Extraction of the following decision-making factors from current situation model:
+   Preflop:
+	-- Starting hand classification: estimated strength, pair\connectors\gap connectors, suited\offsuited, presence of Ace\King.
+	-- Position and initial players count.
+	-- Stacks estimation: effective stack and total stack.
+	-- Bet sizing and dynamics: position and sizes of raises\3-bets\4-bets and their corresponding limpers' and callers' positions.
+   Postflop:
+	-- Potential of the board for the presence of players' straight or straight draw: straight by 2 cards\by 1 card, straignt draw by 2 cards\by 1 card.
+	-- Potential of the board for the presence of players' flush or flush draw: board texture by 2\3\4+ suited cards, 2 by 2 or 2 by 3 suited.
+	-- Board duplication level: no duplications\paired\double paired\tripled\tripled and paired\quads on board.
+	-- Current hand equity vs players' random hands.
+	-- Current hand classification: total combination (High card, Set, Straight etc.), pairs and two pairs estimation (top pair\second pair\top two etc.), set estimation (top set, 2-nd set, 3-d set etc.), straignt strength estimation (top straight\2-nd straight\by 1 card\idiot end), flush strength estimation (including straight flush possibility on board).
+	-- Drawings classification: straight draw (OESD\Gutshot, by 2 cards\by 1 card, relative strength of potential straights), flush draw (by 2 cards\by 1 card, relative strength of minimal potential flush), overpair draws (absolute strength of potential overpair).
+	-- Bet sizing and dynamics: position and sizes of bets\raises\3-bets and their corresponding callers' positions.
+	-- Current pot size estimation in big blinds: partitioning by category.
+5. Conversion of factors listed above into neural data (numbers between -1 and 1). Preflop and postflop decision making via neural data transfer to specially trained neural network.
+6. PokerTracker v3 database connectivity and hand history extraction for neural net training. Minimal hand history filters are supported: most unprofitable hands can be filtered (if the hand was lost and more than 15bb were put in the pot preflop or more than 40bb postflop).
+7. Hand history processing in order to generate models of situations where player has made his decisions, extract factors and convert them to neural data for training the neural net.
+8. Neural net training based on generated neural data.
+9. User interface (Windows):
+	-- Main window: a list of currently processing tables, analytics output: decision making factors\recommended decision, complete log of what's happening at each table, start\stop of the monitoring, log cleanup etc.
+	-- Setup wizard for neural net training.
+	-- Neural net training progress.
+
+Known issues:
+	-- Just after table tracking starts, monitoring begins only from the next hand (after first shift of the button).
+	-- If only two players remain at the table and when 3-d player joins the game, table tracker will miss one hand because PokerStars will not shift the button in this case.
+	-- In case of disconnect the system can stop monitor tables correctly (depending on how long it was disconnected). Tracking reset button will solve the problem.
+	-- In case of usage of Run it Twice feature tracking starts behave incorretly. Can recover itself after one or two hands. This problem also can be solved by reset button.
+	-- Since monitoring is real-time, table screenshots can be unpredictable. Due to this fact the system can sometimes for example miss some hand without any reason. Recent times such an error arises very rare, but if it has been suddenly raised, tracking reset button will help.
+
+Plans for development in the short term:
+	-- Bet sizing and dynamics on previous betting rounds as decision making factor for postflop.
+	-- PokerTracker statistics as decision making factor for preflop and postflop.
+	-- Improvements for training algorithm for neural networks in order to produce better decisions.
+	-- PokerTracker v4 support.
+	-- Graphical user interface for each analytical factor output. Now the factors are only displayed just as text.
+	-- Holdem Manager support as hand history source for training and real-time statistics for decision making.
+
+Plans for development in the long term:
+	-- Support for other poker rooms in addition to PokerStars;
+	-- Tournaments support;
+	-- Omaha support.

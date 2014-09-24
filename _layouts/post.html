@@ -1,0 +1,9 @@
+---
+layout: advisor
+---
+
+{% if page.content contains '<!-- more -->' %}
+	{{ content | split:'<!-- more -->' | last }}
+{% else %}
+	{{ content }}
+{% endif %}
