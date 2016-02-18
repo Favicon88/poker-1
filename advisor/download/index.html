@@ -18,7 +18,7 @@ redirect_from: /
 					<img src="{{ site.baseurl }}/img/dotNetLogo.jpg" />
 				</div>
 				<div class="blogPostSummaryText">
-					<p>The system works on <a href="http://en.wikipedia.org/wiki/.NET_Framework" target="_blank">Microsoft .NET Framework</a>. This platform is already preinstalled on most modern Windows versions. But current version of your .NET installation may not meet program requirements. Currently (September 2014) we use one of the latest versions of .NET: 4.5.1. You can download this version here: <a href="http://www.microsoft.com/download/details.aspx?id=40779" target="_blank">http://www.microsoft.com/download/details.aspx?id=40779</a>. Also you can try to run the program on the latest 4.5.2 version: <a href="http://www.microsoft.com/download/details.aspx?id=42642" target="_blank">http://www.microsoft.com/download/details.aspx?id=42642</a>. .NET Framework allows different versions to be installed side-by-side, so you should not worry about the fact that some older version is already installed on your PC.</p>
+					<p>The system works on <a href="http://en.wikipedia.org/wiki/.NET_Framework" target="_blank">Microsoft .NET Framework</a>. This platform is already preinstalled on most modern Windows versions. But current version of your .NET installation may not meet program requirements. Currently (February 2016) we use one of the latest versions of .NET: 4.6. You can download this version here: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=48137" target="_blank">https://www.microsoft.com/en-us/download/details.aspx?id=48137</a>. Also you can try to run the program on the latest 4.6.1 version: <a href="https://www.microsoft.com/en-us/download/details.aspx?id=49982" target="_blank">https://www.microsoft.com/en-us/download/details.aspx?id=49982</a>. .NET Framework allows different versions to be installed side-by-side, so you should not worry about the fact that some older version is already installed on your PC.</p>
 				</div>
 			</div>
 			<p>Current implementation of Poker Advisor is based on table tracking via image recognition. The system makes poker table screenshots and tries to recognize them several times per second. Currently such implementation has some limitations. That's why to make everything work fine you need to setup the following settings:</p>
@@ -32,14 +32,10 @@ redirect_from: /
 					<table>
 						<tr>
 							<td>
-								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6GoToTableThemes.png" alt="Go to Table Themes (PokerStars 6)" />
-							</td>
-							<td>
 								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PSTableGoToTableThemes.png" alt="Go to Table Themes from PokerStars table" />
 							</td>
 						</tr>
 						<tr>
-							<td>From PokerStars 6 main lobby</td>
 							<td>From the table</td>
 						</tr>
 					</table>
@@ -67,19 +63,6 @@ redirect_from: /
 					<table>
 						<tr>
 							<td>
-								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6GoToOptions.png" alt="Go to Options (PokerStars 6)" />
-							</td>
-							<td>
-								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6BlockPopupAnnouncements.png" alt="Block Pop-up Announcements (PokerStars 6)" />
-							</td>
-						</tr>
-						<tr>
-							<td colspan="2">PokerStars 6 client</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>
 								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7GoToTournamentAnnouncementsOptions.png" alt="Go to Tournament Announcements Options (PokerStars 7)" />
 							</td>
 							<td>
@@ -96,16 +79,6 @@ redirect_from: /
 					<table>
 						<tr>
 							<td>
-								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS6SetupSimplifiedAnimation.png" alt="Setup Simplified Animation (PokerStars 6)" />
-							</td>
-						</tr>
-						<tr>
-							<td>PokerStars 6</td>
-						</tr>
-					</table>
-					<table>
-						<tr>
-							<td>
 								<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7SetupSimplifiedAnimation.png" alt="Setup Simplified Animation (PokerStars 7)" />
 							</td>
 						</tr>
@@ -115,21 +88,12 @@ redirect_from: /
 					</table>
 				</li>
 				<li>
-					<p>If you use PokerStars 7, it's also desirable to <b>disable "Dim Players Not In The Hand"</b>:</p>
+					<p>It's also desirable to <b>disable "Dim Players Not In The Hand"</b>:</p>
 					<img src="{{ site.baseurl }}/img/PSSettingsGuide/PS7DisableDimPlayersNotInHand.png" alt="Disable Dim Players Not In Hand (PokerStars 7)" />
 				</li>
 				<li>
 					<p>These were the main settings that you probably have to change. The following settings are likely already set up as they should, but nevertheless make sure that they are configured so:</p>
 					<ul style="list-style-type: disc">
-						<li>
-							<p><span style="text-decoration: underline;">PokerStars 6</span>:</p>
-							<ul>
-								<li><p>User interface language: <b>English</b>;</p></li>
-								<li><p>Table Display Options > Show Full Hole Cards - should be <b>disabled</b>;</p></li>
-								<li><p>Table Display Options > Show Large Opponent Cards - should be <b>disabled</b>;</p></li>
-								<li><p>Table Display Options > Display Bet Amounts - should be <b>enabled</b>;</p></li>
-							</ul>
-						</li>
 						<li>
 							<p><span style="text-decoration: underline;">PokerStars 7</span>:</p>
 							<ul>
@@ -143,7 +107,7 @@ redirect_from: /
 				</li>
 			</ol>
 			<p>Just in case this description is duplicated in Readme.docx, which is included in downloadable zip. If you've done everything correctly, run Advisor.exe and start playing.</p>
-			<p>P.S.: Main exe is not signed by any certificate, but it requires to run itselt with administrative rights. Windows doesn't allow track start\stop of PokerStars process without administrative privileges. So if you are concerned about viruses in the main exe, here is virustotal report: <a href="https://www.virustotal.com/en/file/628553b76dbdfaae1c9cf9ff248e0861a5bd0b871cfa78da20877e629f1bdaa3/analysis/1411141645/" target="_blank">https://www.virustotal.com/en/file/628553b76dbdfaae1c9cf9ff248e0861a5bd0b871cfa78da20877e629f1bdaa3/analysis/1411141645/</a></p>
+			<p>P.S.: Main exe is not signed by any certificate, but it requires to run itselt with administrative rights. Windows doesn't allow track start\stop of PokerStars process without administrative privileges. So if you are concerned about viruses in the main exe, here is virustotal report: <a href="https://www.virustotal.com/en/file/048a26f29d931f9428b5b3ee6f3e01554fb352fdecf860a4353140e4a8c6f8ac/analysis/" target="_blank">https://www.virustotal.com/en/file/048a26f29d931f9428b5b3ee6f3e01554fb352fdecf860a4353140e4a8c6f8ac/analysis/</a></p>
 			<p>Thank you for your attention to our product! :)</p>
 			<div class="blogPostSummaryLink">
 				<a href="PokerAdvisor.zip">Download and play</a>
